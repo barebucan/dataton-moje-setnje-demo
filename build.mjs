@@ -7,7 +7,7 @@ const data=Buffer.from(await response.arrayBuffer());
 if(createHash('sha256').update(data).digest('hex')!=='c606d3a11d9a518fbcaa958dd6446defc818a435be821ba6515d1e9ee8d1b6e2')throw Error('Invalid runtime digest');
 await writeFile('/tmp/walk-runtime.tar.gz',data);await mkdir('api',{recursive:true});
 execFileSync('tar',['-xzf','/tmp/walk-runtime.tar.gz','-C','api']);
-const source=await fetch('https://api.github.com/repos/barebucan/dataton-moje-setnje-demo/tarball/2c1c262231da222e70daa54fb54b9149fdf6411f',{headers:{'User-Agent':'DELTA-static-build'}});
+const source=await fetch('https://api.github.com/repos/barebucan/dataton-moje-setnje-demo/tarball/f978c24194fe994445c6ef9d29687f66e3e66a32',{headers:{'User-Agent':'DELTA-static-build'}});
 if(!source.ok)throw Error('Source download failed: '+source.status);
 await writeFile('/tmp/walk-source.tar.gz',Buffer.from(await source.arrayBuffer()));await mkdir('/tmp/walk-export',{recursive:true});
 execFileSync('tar',['-xzf','/tmp/walk-source.tar.gz','--strip-components=1','-C','/tmp/walk-export']);
