@@ -97,7 +97,7 @@
         $('#location').textContent = `Trenutačno: ${street}`;
         if (street !== app.street) {
           app.street = street;
-          sendRealtime({type: 'session.update', session: {instructions: sessionInstructions(street)}});
+          sendRealtime({type: 'session.update', session: {type: 'realtime', instructions: sessionInstructions(street)}});
         }
       }
     }
@@ -106,7 +106,7 @@
         /(?:Trenutačno nema prekinute teme za nastavak|Prekinuta tema koju možeš nastaviti samo ako korisnik pristane: [^.]+)\./,
         `Prekinuta tema koju možeš nastaviti samo ako korisnik pristane: ${event.from_poi_name}.`
       );
-      sendRealtime({type: 'session.update', session: {instructions: sessionInstructions(app.street)}});
+      sendRealtime({type: 'session.update', session: {type: 'realtime', instructions: sessionInstructions(app.street)}});
       $('#status').textContent = `Stigli smo do ${event.to_poi_name}; poslije ću ponuditi nastavak priče o ${event.from_poi_name}.`;
     }
     if (event.kind === 'stopped') {
