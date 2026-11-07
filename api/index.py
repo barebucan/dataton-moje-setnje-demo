@@ -53,3 +53,6 @@ async def gpx_export(request:Request):
   result=await client.post('/gpx',json=payload)
  if result.status_code!=200:return Response(result.content,status_code=result.status_code,media_type='application/json')
  return Response(result.json()['gpx'],media_type='application/gpx+xml',headers={'Content-Disposition':'attachment; filename="moje-setnje.gpx"','X-Content-Type-Options':'nosniff'})
+
+from cloud_voice import voice_router
+app.include_router(voice_router(BASE))
