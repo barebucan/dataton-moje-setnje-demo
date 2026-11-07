@@ -1,0 +1,56 @@
+{
+  "version": "route-gps-v1",
+  "deployment": "dpl_J6YE9yKAGNk3MVWUQu7wn3R7gq8X",
+  "frontend_commit": "9754d5587da754bc5264225440e232c90d1749f5",
+  "url": "https://moje-setnje-delta.vercel.app/",
+  "verified_at": "2026-11-07T20:45:24.749467+00:00",
+  "passed": true,
+  "checks": {
+    "api": [
+      "all_real_planner_choices_accepted_and_exact_geometry_preserved",
+      "client_invented_story_ignored_canonical_sources_only",
+      "unknown_place_rejected",
+      "out_of_bounds_rejected",
+      "duplicate_place_rejected",
+      "non_finite_rejected",
+      "no_places_route_is_honestly_empty",
+      "signed_session_bound_to_selected_route_places",
+      "tampered_token_rejected",
+      "ip_binding_replay_guard_and_controlled_sdp",
+      "cross_origin_and_same_instance_quota_guard"
+    ],
+    "controlled_browser": [
+      "direct_guide_without_route_shows_planner_action_no_permissions",
+      "second_route_handoff_exact_geometry_and_hidden_gpx",
+      "live_watch_position_triggers_only_selected_place_once",
+      "off_route_location_updates_ai_context_without_gps_coordinates",
+      "inaccurate_gps_pauses_automatic_stories",
+      "single_submit_question_interrupts_story_and_is_delivered",
+      "question_audio_finishes_before_next_automatic_story",
+      "pause_and_resume_stories",
+      "end_closes_microphone_peer_and_gps_watcher",
+      "coarse_initial_gps_allows_questions_but_never_fakes_arrival",
+      "denied_gps_and_zero_watcher_id_cleanup",
+      "cancel_while_waiting_for_gps",
+      "denied_microphone_stops_gps_and_closes_peer",
+      "stale_gps_pauses_narration_and_clears_old_ai_location"
+    ],
+    "public_live": [
+      "real_planner_second_choice_and_hidden_gpx_export",
+      "exact_selected_route_context_with_canonical_places",
+      "gps_approach_starts_live_ai_story_for_selected_place",
+      "live_question_and_received_voice_audio",
+      "public_gps_off_route_state_and_live_ai_context_update",
+      "end_releases_gps_microphone_and_peer"
+    ]
+  },
+  "privacy": "Selected route is sent to Vercel; new GPS watch fixes stay local; AI receives canonical route facts and current public place context, not raw GPS coordinates.",
+  "limits": [
+    "GPS scenarios tested with virtual browser positions; no physical field walk or physical microphone test in this release.",
+    "GPS quality/background execution depend on device/browser.",
+    "Some places have only a short canonical public description; eight prepared stories retained.",
+    "Live planning example took 27.43 seconds; cold calculations may be slower.",
+    "Session quota is per instance, not a hard global billing cap; AI API is paid separately.",
+    "Public release source differs from unchanged private WordPress pilot; no new formal submission ZIP claimed."
+  ]
+}
