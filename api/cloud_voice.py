@@ -49,8 +49,8 @@ def voice_router(base):
   attempts.append(now);WINDOWS.move_to_end(who)
   while len(WINDOWS)>2048:WINDOWS.popitem(last=False)
   ids=[p['id'] for p in route['places']]
-  token=sign({'t':int(now),'n':secrets.token_hex(12),'ip':who,'ids':ids,'rid':route['route_id']})
-  return JSONResponse({'id':token,'route_id':route['route_id'],'instructions':instructions(route['places']),'realtime_model':OpenAIProvider().models['realtime']},headers={'Cache-Control':'no-store'})
+  token=sign({'t':int(now),'n':secrets.token_hex(12),'ip':who,'ids':ids,'rid':route['route_id'],'m':route['distance_m']})
+  return JSONResponse({'id':token,'route_id':route['route_id'],'instructions':instructions(route['places'],route['distance_m']),'realtime_model':OpenAIProvider().models['realtime']},headers={'Cache-Control':'no-store'})
  @router.post('/realtime/{sid}')
  async def realtime(sid:str,request:Request):
   if not key():return JSONResponse({'detail':'Glasovni servis nije povezan.'},503)
@@ -66,7 +66,7 @@ def voice_router(base):
   except (ValueError,KeyError,UnicodeDecodeError,TypeError):return JSONResponse({'detail':'Pokrenite novu glasovnu šetnju.'},403)
   USED[sid]=time.time()
   while len(USED)>4096:USED.popitem(last=False)
-  try:answer,_=await OpenAIProvider().realtime_call(sdp,instructions(places))
+  try:answer,_=await OpenAIProvider().realtime_call(sdp,instructions(places,info.get('m')))
   except VoiceUnavailable:return JSONResponse({'detail':'Glasovna veza trenutačno nije dostupna. Pokušaj ponovno.'},503)
   return Response(answer,media_type='application/sdp',headers={'Cache-Control':'no-store'})
  return router
