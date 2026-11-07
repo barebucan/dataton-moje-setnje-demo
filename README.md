@@ -1,3 +1,5 @@
-# Moje šetnje — samostalni javni planer
+# Moje šetnje — neovisni javni demo
 
-Planer s izborom rute, kartom i GPX izvozom. Podaci i pješački motor uključeni su u vlastiti paket; nema veze prema Bartolu. Plaćeni probni glasovni vodič nije uključen u ovaj besplatni pokus.
+Planer i GPX rade na Vercelu bez veze prema Bartolu. Build preuzima zamrznute javne podatke i provjerava SHA256. Prethodno izračunate geometrije ubrzavaju prvo učitavanje.
+
+Glasovni vodič ima prilagođenu WebRTC signalizaciju i upravljanje turom u pregledniku. API ključ nije uključen ni pohranjen u repozitorij. Javni AI vodič još nije aktivan ni zvučno provjeren. Postojeći AI API naplaćuje korištenje; hosting Hobby je zasebno besplatan u svojim kvotama.

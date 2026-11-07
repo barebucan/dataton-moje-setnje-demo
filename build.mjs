@@ -1,0 +1,24 @@
+import {mkdir,writeFile,cp} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const origin='https://github.com/barebucan/dataton-moje-setnje-demo/releases/download/snapshot-20261107/moje-setnje-runtime-20261107.tar.gz';
+const response=await fetch(origin);if(!response.ok)throw Error('Runtime download failed: '+response.status);
+const data=Buffer.from(await response.arrayBuffer());
+if(createHash('sha256').update(data).digest('hex')!=='c606d3a11d9a518fbcaa958dd6446defc818a435be821ba6515d1e9ee8d1b6e2')throw Error('Invalid runtime digest');
+await writeFile('/tmp/walk-runtime.tar.gz',data);await mkdir('api',{recursive:true});
+execFileSync('tar',['-xzf','/tmp/walk-runtime.tar.gz','-C','api']);
+const source=await fetch('https://api.github.com/repos/barebucan/dataton-moje-setnje-demo/tarball/2c1c262231da222e70daa54fb54b9149fdf6411f',{headers:{'User-Agent':'DELTA-static-build'}});
+if(!source.ok)throw Error('Source download failed: '+source.status);
+await writeFile('/tmp/walk-source.tar.gz',Buffer.from(await source.arrayBuffer()));await mkdir('/tmp/walk-export',{recursive:true});
+execFileSync('tar',['-xzf','/tmp/walk-source.tar.gz','--strip-components=1','-C','/tmp/walk-export']);
+await cp('/tmp/walk-export/public','public',{recursive:true});
+await cp('/tmp/walk-export/public/voice/places.json','api/runtime/data/cloud-places.json');
+console.log('Independent walking planner and WebRTC guide prepared.');
+
+const geo=await fetch('https://github.com/barebucan/dataton-moje-setnje-demo/releases/download/snapshot-20261107/walk-geometry-20261107.tar.gz');
+if(!geo.ok)throw Error('Geometry cache download failed');
+const gb=Buffer.from(await geo.arrayBuffer());
+if(createHash('sha256').update(gb).digest('hex')!=='d0c6f15bab4c870a987b1ed3c8eb3e46c3e6c3b1612d6539eb2f56b331a8a6e1')throw Error('Invalid geometry cache');
+await writeFile('/tmp/walk-geometry.tar.gz',gb);await mkdir('api/runtime/data/geometry-cache',{recursive:true});
+execFileSync('tar',['-xzf','/tmp/walk-geometry.tar.gz','-C','api/runtime/data/geometry-cache']);
+execFileSync('python3',['-c',"from pathlib import Path\np=Path('api/runtime/backend/app.py')\nt=p.read_text().replace('from shapely.geometry import','from shapely import from_wkb\\nfrom shapely.geometry import',1)\ncache=\"BASE/'data/geometry-cache'\"\nfor name in ['PED','GREEN','PED_M','GREEN_M','GREEN_ROUTE','PED_ROUTE']:\n import re\n t=re.sub(r'(?<![A-Z_])'+name+r'=[^;\\n]+',name+\"=from_wkb((\"+cache+\"/'\"+name+\".wkb').read_bytes())\",t,count=1)\np.write_text(t)\n"]);

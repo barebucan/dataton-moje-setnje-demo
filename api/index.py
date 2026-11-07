@@ -6,7 +6,15 @@ from fastapi.responses import Response,JSONResponse
 BASE=Path(os.environ.get('WALK_RUNTIME',str(Path(__file__).resolve().parent/'runtime')))
 sys.path.insert(0,str(BASE))
 os.environ['LAGANO_GH_URL']='http://127.0.0.1:8314'
-from backend.app import app as planner
+planner=None
+PLANNER_LOCK=threading.Lock()
+def load_planner():
+ global planner
+ with PLANNER_LOCK:
+  if planner is None:
+   from backend.app import app as loaded
+   planner=loaded
+ return planner
 app=FastAPI(docs_url=None,redoc_url=None,openapi_url=None)
 LOCK=threading.Lock()
 def graph_ready():
@@ -36,6 +44,7 @@ async def walk_api(endpoint:str,request:Request):
   except Exception:return JSONResponse({'detail':'Pješački motor se još priprema. Pokušaj ponovno.'},503)
  body=await request.body()
  if len(body)>900000:return JSONResponse({'detail':'Prevelik zahtjev.'},413)
+ await asyncio.to_thread(load_planner)
  async with httpx.AsyncClient(transport=httpx.ASGITransport(app=planner),base_url='http://planner',timeout=70) as client:
   result=await client.request(request.method,'/'+endpoint,params=list(request.query_params.multi_items()),content=body,headers={'Content-Type':'application/json'})
  return Response(result.content,status_code=result.status_code,media_type='application/json',headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'})
@@ -54,5 +63,6 @@ async def gpx_export(request:Request):
  if result.status_code!=200:return Response(result.content,status_code=result.status_code,media_type='application/json')
  return Response(result.json()['gpx'],media_type='application/gpx+xml',headers={'Content-Disposition':'attachment; filename="moje-setnje.gpx"','X-Content-Type-Options':'nosniff'})
 
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 from cloud_voice import voice_router
 app.include_router(voice_router(BASE))
