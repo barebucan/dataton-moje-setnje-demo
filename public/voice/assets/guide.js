@@ -69,7 +69,7 @@ function tick(){
  updateLocationContext(nearby.length?'GPS potvrđuje blizinu mjesta '+JSON.stringify(nearby[0].name)+'. Ostala mjesta nisu potvrđena trenutačna lokacija.':
   'GPS potvrđuje da korisnik prati odabranu trasu, ali blizina određenog mjesta nije potvrđena.');
  flushQuestion();
- if(app.paused||app.userTalking||app.awaitingAnswer)return;
+ if(app.paused||app.userTalking||app.awaitingAnswer||(app.audioPlaying&&app.audioPurpose!=='story'))return;
  const options=nearby.filter(p=>!app.announced.has(p.id)&&p.story);
  const target=options[0];
  if(!target){app.candidate=null;return;}
@@ -91,9 +91,9 @@ function realtimeEvent(e){
  if(e.type==='input_audio_buffer.speech_started'){app.userTalking=true;app.awaitingAnswer=true;$('#status').textContent='Slušam…';}
  if(e.type==='input_audio_buffer.speech_stopped'){app.userTalking=false;$('#status').textContent='Pripremam odgovor…';}
  if(e.type==='conversation.item.input_audio_transcription.completed')message('user',(e.transcript||'').trim());
- if(e.type==='response.created'){app.responses.set(e.response.id,e.response.metadata||{});$('#status').textContent='Vodič govori. Možeš ga prekinuti.';}
- if(e.type==='output_audio_buffer.started')app.audioPlaying=true;
- if(e.type==='output_audio_buffer.stopped'||e.type==='output_audio_buffer.cleared'){app.audioPlaying=false;app.cancelPending=false;flushQuestion();}
+ if(e.type==='response.created'){app.latestPurpose=e.response.metadata?.purpose||'question';app.responses.set(e.response.id,e.response.metadata||{});$('#status').textContent='Vodič govori. Možeš ga prekinuti.';}
+ if(e.type==='output_audio_buffer.started'){app.audioPlaying=true;app.audioPurpose=app.latestPurpose||'question';}
+ if(e.type==='output_audio_buffer.stopped'||e.type==='output_audio_buffer.cleared'){app.audioPlaying=false;app.audioPurpose=null;app.cancelPending=false;flushQuestion();}
  if(e.type==='response.output_audio_transcript.delta')app.transcripts.set(e.response_id,(app.transcripts.get(e.response_id)||'')+(e.delta||''));
  if(e.type==='response.output_audio_transcript.done')app.transcripts.set(e.response_id,e.transcript||'');
  if(e.type==='response.done'){
@@ -169,7 +169,7 @@ $('#start').onclick=async()=>{
   await startGPS(epoch);if(epoch!==app.epoch)return;
   $('#start').textContent='Povezujem vodiča…';
   const response=await fetch('/voice/sessions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({route:app.packet}),signal:app.abort.signal});
-  if(!response.ok){const data=await response.json();throw Error(data.detail||'session');}
+  if(!response.ok){const data=await response.json();const error=Error('session');error.userMessage=data.detail||'Glasovna sesija nije dostupna.';throw error;}
   const session=await response.json();if(epoch!==app.epoch)return;
   app.baseInstructions=session.instructions;await startRealtime(session,epoch);if(epoch!==app.epoch)return;
   app.starting=false;app.active=true;app.tick=setInterval(tick,1000);
@@ -183,7 +183,7 @@ $('#start').onclick=async()=>{
    gps_unavailable:'GPS lokacija nije dostupna. Uključi lokaciju na uređaju i pokušaj ponovno.',
    gps_unsupported:'Ovaj preglednik ne podržava lokaciju.',
    NotAllowedError:'Dopusti mikrofon u pregledniku pa ponovno pokreni vodiča.'};
-  cleanup(messages[error.message]||messages[error.name]||'Vodič se nije povezao. Provjeri mikrofon i internetsku vezu pa pokušaj ponovno.');
+  cleanup(messages[error.message]||messages[error.name]||error.userMessage||'Vodič se nije povezao. Provjeri mikrofon i internetsku vezu pa pokušaj ponovno.');
  }
 };
 $('#end').onclick=()=>cleanup('Šetnja je završena.');
