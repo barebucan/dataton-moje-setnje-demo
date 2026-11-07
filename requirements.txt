@@ -1,0 +1,5 @@
+fastapi==0.162.0
+httpx==0.28.1
+shapely==2.2.0
+pyproj==3.8.0
+numpy==2.5.4
