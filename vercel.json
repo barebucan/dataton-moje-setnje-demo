@@ -40,6 +40,10 @@
     {
       "source": "/voice/realtime/:sid",
       "destination": "/api/index.py"
+    },
+    {
+      "source": "/voice/context",
+      "destination": "/api/index.py"
     }
   ],
   "headers": [

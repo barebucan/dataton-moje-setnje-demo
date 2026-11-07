@@ -58,6 +58,7 @@ async def gpx_export(request:Request):
   if data.get('action')!=['lagano_gpx']:raise ValueError()
   payload={'name':data.get('name',['Moja šetnja'])[0],'coordinates':json.loads(data.get('coordinates',['null'])[0])}
  except (ValueError,TypeError):return JSONResponse({'detail':'Neispravan zahtjev.'},400)
+ await asyncio.to_thread(load_planner)
  async with httpx.AsyncClient(transport=httpx.ASGITransport(app=planner),base_url='http://planner') as client:
   result=await client.post('/gpx',json=payload)
  if result.status_code!=200:return Response(result.content,status_code=result.status_code,media_type='application/json')
