@@ -1,13 +1,20 @@
 import {mkdir,writeFile,cp} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+await cp('public/voice','/tmp/walk-voice-ui',{recursive:true});
 const origin='https://github.com/barebucan/dataton-moje-setnje-demo/releases/download/snapshot-20261107/moje-setnje-runtime-20261107.tar.gz';
 const response=await fetch(origin);if(!response.ok)throw Error('Runtime download failed: '+response.status);
 const data=Buffer.from(await response.arrayBuffer());
 if(createHash('sha256').update(data).digest('hex')!=='c606d3a11d9a518fbcaa958dd6446defc818a435be821ba6515d1e9ee8d1b6e2')throw Error('Invalid runtime digest');
 await writeFile('/tmp/walk-runtime.tar.gz',data);await mkdir('api',{recursive:true});
 execFileSync('tar',['-xzf','/tmp/walk-runtime.tar.gz','-C','api']);
-await cp('public/voice/places.json','api/runtime/data/cloud-places.json');
+const source=await fetch('https://api.github.com/repos/barebucan/dataton-moje-setnje-demo/tarball/9754d5587da754bc5264225440e232c90d1749f5',{headers:{'User-Agent':'DELTA-static-build'}});
+if(!source.ok)throw Error('Source download failed: '+source.status);
+await writeFile('/tmp/walk-source.tar.gz',Buffer.from(await source.arrayBuffer()));await mkdir('/tmp/walk-export',{recursive:true});
+execFileSync('tar',['-xzf','/tmp/walk-source.tar.gz','--strip-components=1','-C','/tmp/walk-export']);
+await cp('/tmp/walk-export/public','public',{recursive:true});
+await cp('/tmp/walk-voice-ui','public/voice',{recursive:true});
+await cp('/tmp/walk-export/public/voice/places.json','api/runtime/data/cloud-places.json');
 console.log('Independent walking planner and WebRTC guide prepared.');
 
 const geo=await fetch('https://github.com/barebucan/dataton-moje-setnje-demo/releases/download/snapshot-20261107/walk-geometry-20261107.tar.gz');
