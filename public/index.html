@@ -28,6 +28,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 #edit-choices:hover{background:#d8e5dc;border-color:#174c3c}
 #edit-choices:focus-visible{outline:3px solid #174c3c;outline-offset:3px}
 .result-actions{margin:12px 0}
+</style><style id="route-action-layout">
+@media(min-width:741px){
+.route-actions{display:grid!important;grid-template-columns:minmax(0,1fr);gap:10px;margin:14px 0 20px}
+.route-actions #start-route-guide,.route-actions #view-route-map{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:46px;box-sizing:border-box;padding:11px 14px;border-radius:9px;font-size:13px;line-height:1.5;text-align:center;white-space:normal}
+.route-actions #start-route-guide{background:#1c654c;color:white;border:1px solid #1c654c}
+.route-actions #view-route-map{background:#edf2ee;color:#174c3c;border:1px solid #b5c8bc}
+}
+</style><style id="map-return-visible">
+body .map-panel.is-expanded #back-to-planner:not([hidden]){display:inline-flex!important;align-items:center;top:14px;left:14px;bottom:auto;transform:none;z-index:650;min-height:44px;padding:10px 15px}
+.map-panel.is-expanded .coverage-pill{visibility:hidden}
 </style></head><body><a class="skip-link" href="#planner">Preskoči na planer</a>
 <header class="site-header">
  <a class="brand" href="./" aria-label="Moje šetnje — početna"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M10 24c-6-5-5-13 1-17 2 5 8 5 9 10 1 4-3 8-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M12 24c1-6 5-10 12-15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>Moje šetnje<span class="brand-dot">.</span></a>
@@ -63,5 +73,5 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 window.LAGANO={"api":".\/wp-json\/lagano\/v1\/","download":".\/wp-admin\/admin-post.php"};
 //# sourceURL=lagano-app-js-before
 </script>
-<script id="lagano-app-js" src="./wp-content/plugins/lagano-walks/assets/app.js?ver=navigation-v1"></script>
+<script id="lagano-app-js" src="./wp-content/plugins/lagano-walks/assets/app.js?ver=navigation-audit-v2"></script>
 </body></html>
