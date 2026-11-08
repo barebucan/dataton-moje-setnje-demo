@@ -6,12 +6,21 @@ const app={route:[],places:[],responses:new Map(),transcripts:new Map(),events:[
  ready:false,active:false,starting:false,epoch:0,watchId:null,lastFix:null,audioPlaying:false,userTalking:false,awaitingAnswer:false};
 window.laganoVoice=app;
 const record=(kind,data={})=>{app.events.push({kind,client_ms:performance.now(),...data});if(app.events.length>400)app.events.shift();};
-function message(role,text){if(!text)return;const n=document.createElement('div');n.className='message '+role;n.textContent=text;$('#conversation').append(n);}
+function message(role,text,id=null){
+ if(!text)return;
+ let n=id?document.getElementById('message-'+id):null;
+ if(!n){n=document.createElement('div');n.className='message '+role;if(id)n.id='message-'+id;
+  const label=document.createElement('strong');label.className='speaker';label.textContent=role==='user'?'Ti':'AI vodič';
+  const body=document.createElement('span');body.className='message-text';n.append(label,body);$('#conversation').append(n);}
+ n.querySelector('.message-text').textContent=text;
+ $('#conversation-hint').hidden=true;
+ const box=$('#conversation');box.scrollTop=box.scrollHeight;
+}
 function send(event){if(app.dc?.readyState!=='open')return false;app.dc.send(JSON.stringify(event));return true;}
 function cancelSpeech(){if(app.responses.size)send({type:'response.cancel'});if(app.audioPlaying)send({type:'output_audio_buffer.clear'});}
-function sessionUI(){const live=app.active||app.starting;$('#start').hidden=app.active;$('#start').disabled=!app.ready||app.starting;
+function sessionUI(){document.body.classList.toggle('guide-active',app.active);const live=app.active||app.starting;$('#start').hidden=app.active;$('#start').disabled=!app.ready||app.starting;
  $('#session-actions').hidden=!live;$('#question').disabled=!app.active;$('#send').disabled=!app.active;$('#stop').disabled=!app.active;
- $('#locate').hidden=!app.lastFix||!live;}
+ $('#locate').hidden=!app.lastFix||!live;$('#microphone-state').hidden=!app.active;}
 function clearGPS(){if(app.watchId!==null){navigator.geolocation.clearWatch(app.watchId);app.watchId=null;}clearInterval(app.tick);clearTimeout(app.gpsWaitTimer);app.rejectGPS?.(Error('cancelled'));app.rejectGPS=null;}
 function cleanup(text){
  app.epoch++;app.active=false;app.starting=false;clearGPS();clearTimeout(app.endTimer);clearTimeout(app.connectionTimer);
@@ -89,18 +98,18 @@ function tick(){
 }
 function realtimeEvent(e){
  record('realtime_server_event',{type:e.type});
- if(e.type==='input_audio_buffer.speech_started'){app.userTalking=true;app.awaitingAnswer=true;$('#status').textContent='Slušam…';}
- if(e.type==='input_audio_buffer.speech_stopped'){app.userTalking=false;$('#status').textContent='Pripremam odgovor…';}
+ if(e.type==='input_audio_buffer.speech_started'){$('#microphone-state').textContent='🎙 Slušam tvoje pitanje…';app.userTalking=true;app.awaitingAnswer=true;$('#status').textContent='Slušam…';}
+ if(e.type==='input_audio_buffer.speech_stopped'){$('#microphone-state').textContent='🎙 Mikrofon uključen · pripremam odgovor';app.userTalking=false;$('#status').textContent='Pripremam odgovor…';}
  if(e.type==='conversation.item.input_audio_transcription.completed')message('user',(e.transcript||'').trim());
  if(e.type==='response.created'){app.latestPurpose=e.response.metadata?.purpose||'question';app.responses.set(e.response.id,e.response.metadata||{});$('#status').textContent='Vodič govori. Možeš ga prekinuti.';}
  if(e.type==='output_audio_buffer.started'){app.audioPlaying=true;app.audioPurpose=app.latestPurpose||'question';}
  if(e.type==='output_audio_buffer.stopped'||e.type==='output_audio_buffer.cleared'){app.audioPlaying=false;app.audioPurpose=null;app.cancelPending=false;flushQuestion();}
- if(e.type==='response.output_audio_transcript.delta')app.transcripts.set(e.response_id,(app.transcripts.get(e.response_id)||'')+(e.delta||''));
+ if(e.type==='response.output_audio_transcript.delta'){const text=(app.transcripts.get(e.response_id)||'')+(e.delta||'');app.transcripts.set(e.response_id,text);message('assistant',text,e.response_id);}
  if(e.type==='response.output_audio_transcript.done')app.transcripts.set(e.response_id,e.transcript||'');
  if(e.type==='response.done'){
   const r=e.response,meta=app.responses.get(r.id)||r.metadata||{};
   const text=app.transcripts.get(r.id)||(r.output||[]).flatMap(x=>x.content||[]).map(c=>c.transcript||c.text||'').join(' ');
-  if(r.status==='completed')message('assistant',text);
+  if(text)message('assistant',text,r.id);$('#microphone-state').textContent='🎙 Mikrofon sluša · govori prirodno';
   app.responses.delete(r.id);app.transcripts.delete(r.id);app.cancelPending=false;
   if(meta.purpose!=='story')app.awaitingAnswer=false;
   $('#send').disabled=!app.active||!!app.pendingQuestion;flushQuestion();
