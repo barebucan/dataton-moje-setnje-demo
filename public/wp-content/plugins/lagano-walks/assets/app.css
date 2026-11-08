@@ -331,3 +331,13 @@ h1 span{display:block}@media(max-width:740px){h1 span{display:inline}}
 @media(max-width:740px){.planner-panel{padding:19px 22px 24px}.panel-intro h1{font-size:28px}.panel-intro>p{font-size:12px;margin-bottom:17px}.mode-switch{margin-bottom:14px}.mode-switch label>span{min-height:37px;font-size:11px}.field-block{margin-bottom:15px}.duration-options label>span{padding:9px 3px;font-size:18px}.preference-options label>span{font-size:11px;min-height:38px;padding:7px 8px}.primary-button{height:49px}.result-type-options button{font-size:12px;min-height:36px}.route-request{font-size:12px}.route-choice-status{font-size:11px}.choice-card .route-name{font-size:13px}.choice-card .route-benefit{font-size:11px}.choice-card .route-minutes{font-size:27px}.choice-card .route-stop-count{font-size:10px}.route-actions{display:none}.result-actions{margin-bottom:3px}.result-actions .inline-button{font-size:11px}.route-card.choice-card{padding:12px}.route-card.choice-card[aria-checked=true]{padding:11px}}
 
 .preference-options input:checked+span{background:#194e3d;border-color:#194e3d;color:#fff}.choice-card .route-name{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.choice-card .route-tag:empty{display:none}
+
+/* UX v5: primary mobile action and actual route highlights. */
+.choice-card .route-benefit{line-height:1.45;overflow-wrap:anywhere}
+@media(max-width:740px){
+ .route-actions{display:grid;grid-template-columns:1fr}
+ .route-actions #view-route-map{display:none}
+ .mobile-view-switch.has-guide{grid-template-columns:.75fr .75fr 1.5fr;left:12px;right:12px}
+ .mobile-view-switch #mobile-guide{background:#194e3d;color:#fff;font-size:12px}
+ .mobile-view-switch.has-guide>button[aria-pressed=true]{background:#e7eee2;color:#194e3d}
+}
