@@ -245,7 +245,7 @@ async function init(){
   if(app.exampleOnly){$('#demo-options').open=true;$('#mode-badge').textContent='Pripremljeni primjer · demonstracija';$('#status').textContent='Demonstracija koristi mikrofon; stvarna lokacija ostaje isključena.';$('.start-help p').textContent='Pokreni demonstraciju i dopusti mikrofon. Vodič će prvi ponuditi priču; reci „može” za nastavak ili postavi pitanje.';}
   app.ready=!!status.configured;$('#availability').textContent=app.ready?'Odabrana ruta je spremna.':'Glasovni servis trenutačno nije dostupan.';sessionUI();
  }catch(e){
-  app.ready=false;$('#start').hidden=true;$('#empty-route').hidden=false;$('#availability').textContent='';$('#status').textContent='Vodič se otvara iz odabrane rute u planeru.';
+  app.ready=false;document.body.classList.add('no-route');$('#mode-badge').textContent='Odaberi šetnju';$('#start').hidden=true;$('#empty-route').hidden=false;$('#availability').textContent='';$('#status').textContent='Vodič se otvara iz odabrane rute u planeru.';
  }
 }
 init();
