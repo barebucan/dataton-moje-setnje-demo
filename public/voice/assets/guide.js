@@ -98,9 +98,9 @@ function tick(){
 }
 function realtimeEvent(e){
  record('realtime_server_event',{type:e.type});
- if(e.type==='input_audio_buffer.speech_started'){$('#microphone-state').textContent='🎙 Slušam tvoje pitanje…';app.userTalking=true;app.awaitingAnswer=true;$('#status').textContent='Slušam…';}
+ if(e.type==='input_audio_buffer.speech_started'){message('user','Slušam tvoje pitanje…',e.item_id);$('#microphone-state').textContent='🎙 Slušam tvoje pitanje…';app.userTalking=true;app.awaitingAnswer=true;$('#status').textContent='Slušam…';}
  if(e.type==='input_audio_buffer.speech_stopped'){$('#microphone-state').textContent='🎙 Mikrofon uključen · pripremam odgovor';app.userTalking=false;$('#status').textContent='Pripremam odgovor…';}
- if(e.type==='conversation.item.input_audio_transcription.completed')message('user',(e.transcript||'').trim());
+ if(e.type==='conversation.item.input_audio_transcription.completed')message('user',(e.transcript||'').trim(),e.item_id);
  if(e.type==='response.created'){app.latestPurpose=e.response.metadata?.purpose||'question';app.responses.set(e.response.id,e.response.metadata||{});$('#status').textContent='Vodič govori. Možeš ga prekinuti.';}
  if(e.type==='output_audio_buffer.started'){app.audioPlaying=true;app.audioPurpose=app.latestPurpose||'question';}
  if(e.type==='output_audio_buffer.stopped'||e.type==='output_audio_buffer.cleared'){app.audioPlaying=false;app.audioPurpose=null;app.cancelPending=false;flushQuestion();}
