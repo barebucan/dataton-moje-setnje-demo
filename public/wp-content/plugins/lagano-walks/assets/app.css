@@ -335,8 +335,6 @@ h1 span{display:block}@media(max-width:740px){h1 span{display:inline}}
 /* UX v5: primary mobile action and actual route highlights. */
 .choice-card .route-benefit{line-height:1.45;overflow-wrap:anywhere}
 @media(max-width:740px){
- .route-actions{display:grid;grid-template-columns:1fr}
- .route-actions #view-route-map{display:none}
  .mobile-view-switch.has-guide{grid-template-columns:.75fr .75fr 1.5fr;left:12px;right:12px}
  .mobile-view-switch #mobile-guide{background:#194e3d;color:#fff;font-size:12px}
  .mobile-view-switch.has-guide>button[aria-pressed=true]{background:#e7eee2;color:#194e3d}
