@@ -1,3 +1,6 @@
-
+private/
+runtime/
+logs/
+downloads/
 __pycache__/
 *.pyc

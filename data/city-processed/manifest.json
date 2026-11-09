@@ -1,0 +1,29 @@
+{
+  "url": "https://download.geofabrik.de/europe/croatia-latest.osm.pbf",
+  "downloaded": "2026-10-27",
+  "sha256": "ea144f538a78c38636c3fd45e8fbdcd706881e3b819beddb19da7488cf46453e",
+  "bounds": [
+    15.74,
+    45.55,
+    16.33,
+    46.04
+  ],
+  "license": "ODbL",
+  "counts": {
+    "highways": 113982,
+    "restrictions": 1435,
+    "addresses": 53361,
+    "named_places": 690
+  },
+  "parks": 9573,
+  "search": 61127,
+  "poi": 214,
+  "search_base": 61126,
+  "derived_index_overrides": [
+    {
+      "id": "park-maksimir",
+      "source_record_id": "green-1147778",
+      "note": "Existing named park added to search; no claim of a main entrance"
+    }
+  ]
+}

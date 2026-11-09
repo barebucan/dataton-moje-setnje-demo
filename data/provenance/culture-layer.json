@@ -1,0 +1,591 @@
+{
+  "currentVersion" : 12, 
+  "id" : 0, 
+  "name" : "SVE_kultura", 
+  "type" : "Feature Layer", 
+  "serviceItemId" : "83db22aeb39441ec84911ee94f26e746", 
+  "cacheMaxAge" : 30, 
+  "isView" : true, 
+  "isUpdatableView" : true, 
+  "sourceSchemaChangesAllowed" : true, 
+  "displayField" : "naziv", 
+  "description" : "SVE_kultura_189", 
+  "copyrightText" : "", 
+  "defaultVisibility" : true, 
+  "editingInfo" : {
+    "lastEditDate" : 1730974168224, 
+    "schemaLastEditDate" : 1730974168224, 
+    "dataLastEditDate" : 1730974168224
+  }, 
+  "relationships" : [], 
+  "isDataVersioned" : false, 
+  "hasContingentValuesDefinition" : false, 
+  "supportsAppend" : true, 
+  "supportsCalculate" : true, 
+  "supportsASyncCalculate" : true, 
+  "supportsTruncate" : false, 
+  "supportsAttachmentsByUploadId" : true, 
+  "supportsAttachmentsResizing" : true, 
+  "supportsRollbackOnFailureParameter" : true, 
+  "supportsStatistics" : true, 
+  "supportsExceedsLimitStatistics" : true, 
+  "supportsAdvancedQueries" : true, 
+  "supportsValidateSql" : true, 
+  "supportsCoordinatesQuantization" : true, 
+  "supportsLayerOverrides" : true, 
+  "supportsTilesAndBasicQueriesMode" : true, 
+  "supportsFieldDescriptionProperty" : true, 
+  "supportsQuantizationEditMode" : true, 
+  "supportsColumnStoreIndex" : true, 
+  "supportsApplyEditsWithGlobalIds" : false, 
+  "supportsReturningQueryGeometry" : true, 
+  "enableNullGeometry" : false, 
+  "advancedQueryCapabilities" : {
+    "supportsPagination" : true, 
+    "supportsPaginationOnAggregatedQueries" : true, 
+    "supportsQueryRelatedPagination" : true, 
+    "supportsQueryWithDistance" : true, 
+    "supportsOutDistance" : true, 
+    "supportsReturningQueryExtent" : true, 
+    "supportsStatistics" : true, 
+    "supportsOrderBy" : true, 
+    "supportsDistinct" : true, 
+    "supportsQueryWithResultType" : true, 
+    "supportsSqlExpression" : true, 
+    "supportsTimeRelation" : true, 
+    "supportsAdvancedQueryRelated" : true, 
+    "supportsCountDistinct" : true, 
+    "supportsPercentileStatistics" : true, 
+    "supportsApproxPercentileStatistics" : true, 
+    "supportsSpatialAggregationStatistics" : true, 
+    "supportedSpatialAggregationStatistics" : [
+      "EnvelopeAggregate", 
+      "CentroidAggregate", 
+      "ConvexHullAggregate"
+    ], 
+    "supportsLod" : true, 
+    "supportsQueryWithLodSR" : false, 
+    "supportedLodTypes" : [
+      "geohash"
+    ], 
+    "supportsReturningGeometryCentroid" : false, 
+    "supportsReturningGeometryEnvelope" : false, 
+    "supportsQueryWithDatumTransformation" : true, 
+    "supportsCurrentUserQueries" : true, 
+    "supportsHavingClause" : true, 
+    "supportsOutFieldSQLExpression" : true, 
+    "supportsMaxRecordCountFactor" : true, 
+    "supportsTopFeaturesQuery" : true, 
+    "supportsDisjointSpatialRel" : true, 
+    "supportsQueryWithCacheHint" : true, 
+    "supportedOperationsWithCacheHint" : [
+      "query", 
+      "queryTopFilter", 
+      "queryAnalytics", 
+      "queryAttachments", 
+      "queryRelated", 
+      "queryBins", 
+      "queryPivot"
+    ], 
+    "supportsQueryAnalytic" : true, 
+    "supportsQueryPivot" : true, 
+    "supportsQueryBins" : true, 
+    "supportsDefaultSR" : true, 
+    "supportsTranslations" : false, 
+    "supportsAggIds" : true, 
+    "supportsQueryWithCollation" : true, 
+    "supportsISODOW" : true, 
+    "supportsISOWeek" : true, 
+    "supportsFullTextSearch" : true, 
+    "fullTextSearchCapabilities" : {
+      "supportsAccentSensitivity" : true, 
+      "supportsStopWords" : true, 
+      "supportsSearchOperator" : true, 
+      "supportsOperator" : true
+    }
+  }, 
+  "advancedQueryAnalyticCapabilities" : {
+    "supportsLinearRegression" : true, 
+    "supportsTrendlineRegression" : true, 
+    "supportsAsync" : true, 
+    "supportsPercentileAnalytic" : true
+  }, 
+  "queryBinsCapabilities" : {
+    "supportsAsync" : true, 
+    "supportsAutoIntervalBin" : true, 
+    "supportsFixedIntervalBin" : true, 
+    "supportsFixedBoundariesBin" : true, 
+    "supportsDateBin" : true, 
+    "supportsClassificationBin" : true, 
+    "supportsStackBy" : true, 
+    "supportsSplitBy" : true, 
+    "supportsFirstDayOfWeek" : true, 
+    "supportsSnapToData" : true, 
+    "supportsReturnFullIntervalBin" : true, 
+    "supportsReturnStackValueRange" : true, 
+    "supportsNormalization" : true, 
+    "supportedStatisticTypes" : [
+      "COUNT", 
+      "SUM", 
+      "AVG", 
+      "VAR", 
+      "STDDEV", 
+      "MIN", 
+      "MAX", 
+      "PERCENTILE_CONT", 
+      "PERCENTILE_DISC", 
+      "APPROX_PERCENTILE_CONT", 
+      "APPROX_PERCENTILE_DISC", 
+      "CentroidAggregate", 
+      "EnvelopeAggregate", 
+      "ConvexHullAggregate"
+    ], 
+    "supportedNormalizationTypes" : [
+      "boxCox", 
+      "field", 
+      "inverse", 
+      "log", 
+      "naturalLog", 
+      "percentOfTotal", 
+      "squareRoot"
+    ]
+  }, 
+  "supportedOperationsWithCollation" : "query,addField,updateField", 
+  "advancedEditingCapabilities" : {
+    "supportedSqlFormatsInCalculate" : [
+      "standard"
+    ], 
+    "supportsAsyncApplyEdits" : true, 
+    "supportsReturnEditResults" : true, 
+    "supportsApplyEditsbyUploadID" : true, 
+    "supportedApplyEditsUploadIDFormats" : "JSON,PBF", 
+    "supportsTranslation" : false, 
+    "supportsMaxTranslations" : 10
+  }, 
+  "infoInEstimates" : [
+    "extent", 
+    "count"
+  ], 
+  "useStandardizedQueries" : true, 
+  "geometryType" : "esriGeometryPoint", 
+  "minScale" : 0, 
+  "maxScale" : 0, 
+  "extent" : {
+    "xmin" : 444918.05709999986, 
+    "ymin" : 5065570.75, 
+    "xmax" : 469881.8200000003, 
+    "ymax" : 5080594.9979, 
+    "spatialReference" : {
+      "wkid" : 3765, 
+      "latestWkid" : 3765
+    }
+  }, 
+  "spatialReference" : {
+    "wkid" : 3765, 
+    "latestWkid" : 3765
+  }, 
+  "drawingInfo":{"renderer":{"type":"simple","symbol":{"angle":0,"xoffset":0,"yoffset":7.5,"type":"esriPMS","url":"0e31134d-6893-49fc-b861-8605bbd8f06b","imageData":"iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QkRGQkZGNTNEMzJDMTFFMEFFOTVFRTBGMDE2NDc1MDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QkRGQkZGNTREMzJDMTFFMEFFOTVFRTBGMDE2NDc1MDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCREZCRkY1MUQzMkMxMUUwQUU5NUVFMEYwMTY0NzUwNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCREZCRkY1MkQzMkMxMUUwQUU5NUVFMEYwMTY0NzUwNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpVcTVoAAAmMSURBVHja7Ft9TBTp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","contentType":"image/png","width":15,"height":15}},"transparency":0}, 
+  "allowGeometryUpdates" : true, 
+  "hasAttachments" : false, 
+  "viewSourceHasAttachments" : false, 
+  "htmlPopupType" : "esriServerHTMLPopupTypeAsHTMLText", 
+  "hasMetadata" : true, 
+  "hasM" : false, 
+  "hasZ" : false, 
+  "objectIdField" : "OBJECTID", 
+  "uniqueIdField" : 
+  {
+    "name" : "OBJECTID", 
+    "isSystemMaintained" : true
+  }, 
+  "globalIdField" : "", 
+  "typeIdField" : "", 
+  "collation" : {
+    "locale" : "neutral", 
+    "caseSensitive" : false, 
+    "accentSensitive" : true
+  }, 
+  "fields" : [
+    {
+      "name" : "OBJECTID", 
+      "type" : "esriFieldTypeOID", 
+      "alias" : "OBJECTID", 
+      "sqlType" : "sqlTypeOther", 
+      "nullable" : false, 
+      "editable" : false, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "naziv", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Naziv", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "adresa", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Adresa", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "telefon", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Telefon", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "fax", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Fax", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "email", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Email", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "web", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Web", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "radno_vrijeme", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Radno vrijeme", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "osnivac", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Osnivač", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 255, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : 
+      {
+        "type" : "codedValue", 
+        "name" : "kultura_sve_osnivac_3f953e72-ae6c-441c-827b-5807e216afbc", 
+        "codedValues" : [
+          {
+            "name" : "Grad Zagreb", 
+            "code" : "Grad Zagreb"
+          }, 
+          {
+            "name" : "Privatno", 
+            "code" : "Privatno"
+          }, 
+          {
+            "name" : "\u003cNull\u003e", 
+            "code" : "\u003cNull\u003e"
+          }, 
+          {
+            "name" : "Republika Hrvatska", 
+            "code" : "Republika Hrvatska"
+          }, 
+          {
+            "name" : "Republika Hrvatska, HAZU", 
+            "code" : "Republika Hrvatska, HAZU"
+          }, 
+          {
+            "name" : "Grad Zagreb / Republika Hrvatska", 
+            "code" : "Grad Zagreb / Republika Hrvatska"
+          }, 
+          {
+            "name" : "Sveučilište u Zagrebu", 
+            "code" : "Sveučilište u Zagrebu"
+          }, 
+          {
+            "name" : "Croatia film d.d.", 
+            "code" : "Croatia film d.d."
+          }, 
+          {
+            "name" : "Direkcija PTT Zagreb", 
+            "code" : "Direkcija PTT Zagreb"
+          }, 
+          {
+            "name" : "Grad Zagreb i Festival suvremenog židovskog filma Zagreb", 
+            "code" : "Grad Zagreb i Festival suvremenog židovskog filma Zagreb"
+          }, 
+          {
+            "name" : "Grad Zagreb i Glumačka družina Histrioni", 
+            "code" : "Grad Zagreb i Glumačka družina Histrioni"
+          }, 
+          {
+            "name" : "HDLU", 
+            "code" : "HDLU"
+          }, 
+          {
+            "name" : "Hrvatski lovački savez", 
+            "code" : "Hrvatski lovački savez"
+          }, 
+          {
+            "name" : "Kinematografi d.d.", 
+            "code" : "Kinematografi d.d."
+          }, 
+          {
+            "name" : "Sveučilište u Zagrebu, Muzička akademija", 
+            "code" : "Sveučilište u Zagrebu, Muzička akademija"
+          }, 
+          {
+            "name" : "Zaklada Dražen Petrović", 
+            "code" : "Zaklada Dražen Petrović"
+          }
+        ]
+      }, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "energetski_razred", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Energetski razred", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 50, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : 
+      {
+        "type" : "codedValue", 
+        "name" : "kultura_sve_energetski_razred_1a5c0d1f-09f0-43c5-8ac7-1d724ddf41dd", 
+        "codedValues" : [
+          {
+            "name" : "C", 
+            "code" : "C"
+          }, 
+          {
+            "name" : "D", 
+            "code" : "D"
+          }, 
+          {
+            "name" : "E", 
+            "code" : "E"
+          }, 
+          {
+            "name" : "F", 
+            "code" : "F"
+          }, 
+          {
+            "name" : "G", 
+            "code" : "G"
+          }, 
+          {
+            "name" : "B", 
+            "code" : "B"
+          }
+        ]
+      }, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "nadlezan", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Nadležan", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 254, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : 
+      {
+        "type" : "codedValue", 
+        "name" : "kultura_sve_nadlezan_d2832e3c-e065-45a3-8542-59af765ff2e6", 
+        "codedValues" : [
+          {
+            "name" : "Gradski ured za kulturu, međugradsku i međunarodnu suradnju i civilno društvo", 
+            "code" : "Gradski ured za kulturu, međugradsku i međunarodnu suradnju i civilno društvo"
+          }, 
+          {
+            "name" : "Gradski ured za gospodarstvo, ekološku održivost i strategijsko planiranje", 
+            "code" : "Gradski ured za gospodarstvo, ekološku održivost i strategijsko planiranje"
+          }
+        ]
+      }, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "ustanove", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Ustanove", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 50, 
+      "nullable" : true, 
+      "editable" : true, 
+      "isViewOverride" : false, 
+      "domain" : 
+      {
+        "type" : "codedValue", 
+        "name" : "kultura_sve_ustanove_f873f495-43bb-45e3-82bd-2172e04d5542", 
+        "codedValues" : [
+          {
+            "name" : "GALERIJA", 
+            "code" : "GALERIJA"
+          }, 
+          {
+            "name" : "KNJIŽNICA", 
+            "code" : "KNJIŽNICA"
+          }, 
+          {
+            "name" : "MUZEJI I ZBIRKE", 
+            "code" : "MUZEJI I ZBIRKE"
+          }, 
+          {
+            "name" : "CENTAR ZA KULTURU I NARODNO SVEUČILIŠTE", 
+            "code" : "CENTAR ZA KULTURU I NARODNO SVEUČILIŠTE"
+          }, 
+          {
+            "name" : "KAZALIŠTE", 
+            "code" : "KAZALIŠTE"
+          }, 
+          {
+            "name" : "KINEMATOGRAFI", 
+            "code" : "KINEMATOGRAFI"
+          }, 
+          {
+            "name" : "KONCERTNA DVORANA", 
+            "code" : "KONCERTNA DVORANA"
+          }
+        ]
+      }, 
+      "defaultValue" : null
+    }
+  ], 
+  "indexes" : [
+    {
+      "name" : "PK__KULTURA___F4B70D85416D1AF2", 
+      "fields" : "OBJECTID", 
+      "isAscending" : true, 
+      "isUnique" : true, 
+      "description" : "", 
+      "indexType" : "Attribute"
+    }, 
+    {
+      "name" : "user_18075.KULTURA_KULTURA_SVE2_Shape_sidx", 
+      "fields" : "SHAPE", 
+      "isAscending" : true, 
+      "isUnique" : false, 
+      "description" : "", 
+      "indexType" : "Spatial"
+    }, 
+    {
+      "name" : "ustanove_Index", 
+      "fields" : "ustanove", 
+      "isAscending" : true, 
+      "isUnique" : false, 
+      "description" : "ustanove_Index", 
+      "indexType" : "Attribute"
+    }
+  ], 
+  "dateFieldsTimeReference" : {
+    "timeZone" : "UTC", 
+    "timeZoneIANA" : "Etc/UTC", 
+    "respectsDaylightSaving" : false
+  }, 
+  "preferredTimeReference" : null, 
+  "types" : [], 
+  "templates" : [
+    {
+      "name" : "SVE_kultura", 
+      "description" : "", 
+      "drawingTool" : "esriFeatureEditToolPoint", 
+      "prototype" : {
+        "attributes" : {
+          "gradska_cetvrt" : null, 
+          "ustanove" : null, 
+          "naziv" : null, 
+          "adresa" : null, 
+          "telefon" : null, 
+          "fax" : null, 
+          "email" : null, 
+          "web" : null, 
+          "radno_vrijeme" : null, 
+          "osnivac" : null, 
+          "energetski_razred" : null, 
+          "nadlezan" : null, 
+          "izvor" : null, 
+          "izradio" : null
+        }
+      }
+    }
+  ], 
+  "supportedQueryFormats" : "JSON, geoJSON, PBF", 
+  "supportedAppendFormats" : "sqlite,geoPackage,shapefile,filegdb,featureCollection,geojson,csv,excel,jsonl,featureService,pbf", 
+  "supportedAppendSourceFilterFormats" : "sqlite,geoPackage,shapefile,filegdb,featureService", 
+  "supportedExportFormats" : "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel,parquet", 
+  "supportedConvertFileFormats" : "JSON,PBF,Parquet", 
+  "supportedConvertContentFormats" : "LayerEditCollection,FeatureCollection", 
+  "supportedSpatialRelationships" : [
+    "esriSpatialRelIntersects", 
+    "esriSpatialRelContains", 
+    "esriSpatialRelCrosses", 
+    "esriSpatialRelEnvelopeIntersects", 
+    "esriSpatialRelIndexIntersects", 
+    "esriSpatialRelOverlaps", 
+    "esriSpatialRelTouches", 
+    "esriSpatialRelWithin", 
+    "esriSpatialRelDisjoint", 
+    "esriSpatialRelRelation"
+  ], 
+  "guidFormat" : "", 
+  "supportsContingentValues" : true, 
+  "supportsEditingContingentValues" : true, 
+  "supportedContingentValuesFormats" : "JSON, PBF", 
+  "supportsFieldGroups" : true, 
+  "supportedSyncDataOptions" : 260, 
+  "hasStaticData" : true, 
+  "maxRecordCount" : 2000, 
+  "standardMaxRecordCount" : 16000, 
+  "maxIdsCount" : 1000000, 
+  "standardMaxRecordCountNoGeometry" : 32000, 
+  "tileMaxRecordCount" : 8000, 
+  "maxRecordCountFactor" : 1, 
+  "capabilities" : "Query,Extract"
+}

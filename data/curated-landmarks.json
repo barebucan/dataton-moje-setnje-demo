@@ -1,0 +1,53 @@
+{
+  "checked": "2026-10-27",
+  "references": [
+    "https://nmmu.hr/2021/04/02/potvrdena-promjena-naziva-moderna-galerija-u-nacionalni-muzej-moderne-umjetnosti-2/",
+    "https://nmmu.hr/en/museum/visit-to-the-museum/",
+    "https://nmmu.hr/",
+    "https://www.infozagreb.hr/dogadanja/zagreb-za-djecu/zrinjevac",
+    "https://www.infozagreb.hr/hr/nekategorizirani/kamenita-vrata",
+    "https://umjetnicki-paviljon.hr/"
+  ],
+  "features": {
+    "osm-node-2884714406": {
+      "name": "Palača Vranyczany — NMMU",
+      "kind": "historic",
+      "category_label": "Palača i muzejsko sjedište",
+      "interest": 3,
+      "description": "Sjedište muzeja koji je ranije nosio naziv Moderna galerija. Za unutarnji posjet provjeri službene obavijesti o obnovi.",
+      "website": "https://nmmu.hr/",
+      "source": "NMMU · provjeren naziv i lokacija",
+      "source_url": "https://nmmu.hr/en/museum/visit-to-the-museum/"
+    },
+    "osm-node-13512741723": {
+      "name": "Oktogon NMMU",
+      "kind": "gallery",
+      "category_label": "Izložbeni prostor",
+      "interest": 3,
+      "description": "Izložbeni prostor Nacionalnog muzeja moderne umjetnosti u Ilici 5. Program i mogućnost posjeta provjeri na službenoj stranici.",
+      "website": "https://nmmu.hr/",
+      "source": "NMMU · provjeren naziv i lokacija",
+      "source_url": "https://nmmu.hr/"
+    },
+    "osm-node-1896949794": {
+      "category_label": "Meteorološki stup",
+      "description": "Na Zrinjevcu, uz cvjetnjake i fontane, potraži meteorološki stup — mali detalj za predah i razgledavanje.",
+      "source": "Turistička zajednica grada Zagreba",
+      "source_url": "https://www.infozagreb.hr/dogadanja/zagreb-za-djecu/zrinjevac"
+    },
+    "osm-way-293592928": {
+      "description": "Povijesni prolaz na Gornjem gradu. Turistička zajednica navodi adresu Kamenita ulica 1.",
+      "address": "Kamenita ulica 1",
+      "source": "Turistička zajednica grada Zagreba",
+      "source_url": "https://www.infozagreb.hr/hr/nekategorizirani/kamenita-vrata"
+    },
+    "osm-way-392439336": {
+      "kind": "gallery",
+      "category_label": "Izložbeni paviljon",
+      "description": "Umjetnički paviljon na Trgu kralja Tomislava 22. Na šetnji pogledaj zgradu i kupolu; program i mogućnost ulaska provjeri na službenoj stranici.",
+      "source": "Umjetnički paviljon",
+      "source_url": "https://umjetnicki-paviljon.hr/",
+      "website": "https://umjetnicki-paviljon.hr/"
+    }
+  }
+}
