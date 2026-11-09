@@ -8,7 +8,7 @@ Moje šetnje pomažu građanima i posjetiteljima Zagreba pronaći pješačku rut
 
 - [Planer šetnji](https://moje-setnje-delta.vercel.app/app)
 - [Glasovni vodič na Zelenoj potkovi](https://moje-setnje-delta.vercel.app/voice?demo=green-horseshoe)
-- [Paket s videom i uputama](https://github.com/barebucan/dataton-moje-setnje-demo/releases/tag/datathon-predaja)
+- [Paket s videom i uputama](https://github.com/barebucan/dataton-moje-setnje-demo/releases/tag/predaja)
 
 Odaberite polazište, trajanje i interes. Za razgovor pokrenite demonstracijsku rutu i dopustite mikrofon. Javni demo koristi poslužiteljsku konfiguraciju projekta.
 
